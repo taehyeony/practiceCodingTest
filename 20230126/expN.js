@@ -14,7 +14,7 @@ function solution(N, number) {
 }
 
 function dfs(currentValue, depth, N, number) {
-  if (depth > 8) {
+  if (depth > answer) {
     return;
   }
   if (currentValue == number) {
