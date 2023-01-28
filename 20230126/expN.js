@@ -1,8 +1,13 @@
+/*
+    프로그래머스 DynamicProgramming N으로 표현
+    https://school.programmers.co.kr/learn/courses/30/lessons/42895
+*/
+
 let answer = 9;
 function solution(N, number) {
-    let count = 0;
+  let count = 0;
 
-    dfs(0, 0, N, number);
+  dfs(0, 0, N, number);
 
   if (answer > 8) {
     answer = -1;
@@ -23,14 +28,13 @@ function dfs(currentValue, depth, N, number) {
   }
 
   let connectN = N;
-  for(let i=0;i<8-depth;i++){
+  for (let i = 0; i < 8 - depth; i++) {
     dfs(currentValue + connectN, depth + i + 1, N, number); //더하기
     dfs(currentValue - connectN, depth + i + 1, N, number); //빼기
     dfs(currentValue * connectN, depth + i + 1, N, number); //곱하기
     dfs(currentValue / connectN, depth + i + 1, N, number); //나누기
-    connectN = connectN*10+N;
+    connectN = connectN * 10 + N;
   }
-
 }
 
-solution(2,11);
+solution(2, 11);
